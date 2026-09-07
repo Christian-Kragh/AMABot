@@ -18,36 +18,26 @@
         </header>
 
         <main>
-            <section>
-                <% if (question) { %>
-
-                    <article>
-                        <div class="messages">
-                            <ul id="ul_list">
-                                <li>
-                                    <%= question %>
-                                </li>
-                                <!-- <li>Hello there</li> -->
-                                <!-- <li>General Kenobi</li> -->
-                                <!-- <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.quis quam quod ducimus, -->
-                                    <!-- autem odit! Ea cumque reprehenderit obcaecati similique quod.</li> -->
-                            </ul>
-                        </div>
+            <section id="q_and_a">
+                <% for (const message of messages) { %>
+                    <article class="<%= message.type %>">
+                        <p>
+                            <%= message.text %>
+                        </p>
                     </article>
                     <% } %>
+            </section>
 
-                    <article>
-                        <div class="message">
-                            <form method="POST" action="/ask">
-                                <label for="question"></label>
-                                <textarea id="question" name="question"
-                                    placeholder="Stil dit spørgsmål..."></textarea>
-                                <button id="submit-btn" type="submit">
-                                    <i class="fa-solid fa-arrow-up"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </article>
+            <section id="message">
+                <article>
+                    <form method="POST" action="/ask">
+                        <label for="question"></label>
+                        <textarea id="question" name="question" placeholder="Stil dit spørgsmål..."></textarea>
+                        <button id="submit-btn" type="submit">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </form>
+                </article>
             </section>
         </main>
     </div>
