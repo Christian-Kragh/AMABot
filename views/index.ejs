@@ -13,34 +13,41 @@
     <div class="wrapper">
         <header>
             <nav>
-                 <h1>ChatBoi</h1>
+                <h1>ChatBoi</h1>
             </nav>
         </header>
 
         <main>
             <section>
-                <article>
-                    <div class="messages">
-                        <ul id="ul_list">
-                            <li>Hello</li>
-                            <li>Hello there</li>
-                            <li>General Kenobi</li>
-                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.quis quam quod ducimus, autem odit! Ea cumque reprehenderit obcaecati similique quod.</li>
-                        </ul>
+                <% if (question) { %>
 
-                    </div>
-                </article>
+                    <article>
+                        <div class="messages">
+                            <ul id="ul_list">
+                                <li>
+                                    <%= question %>
+                                </li>
+                                <!-- <li>Hello there</li> -->
+                                <!-- <li>General Kenobi</li> -->
+                                <!-- <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.quis quam quod ducimus, -->
+                                    <!-- autem odit! Ea cumque reprehenderit obcaecati similique quod.</li> -->
+                            </ul>
+                        </div>
+                    </article>
+                    <% } %>
 
-                <article>
-                    <div class="message">
-                        <form>
-                            <textarea name="" id="input" placeholder="Stil dit spørgsmål..."></textarea>
-                            <button id="submit-btn" type="submit">
-                                <i class="fa-solid fa-arrow-up"></i>
-                            </button>
-                        </form>
-                    </div>
-                </article>
+                    <article>
+                        <div class="message">
+                            <form method="POST" action="/ask">
+                                <label for="question"></label>
+                                <textarea id="question" name="question"
+                                    placeholder="Stil dit spørgsmål..."></textarea>
+                                <button id="submit-btn" type="submit">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </article>
             </section>
         </main>
     </div>
