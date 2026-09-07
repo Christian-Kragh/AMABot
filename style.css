@@ -1,0 +1,264 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+/*#region RESET BEGIN*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+/*#endregion*/
+
+:root {
+    --black: oklch(0 0 0);
+    --faded-grey: oklch(0 0 0 / .17);
+}
+
+body {
+    font-family: "Figtree", sans-serif;
+    padding: 3rem 5vw 3rem 5vw;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: .8cqw;
+}
+
+main {
+    container-type: inline-size;
+    padding-top: 4rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 2rem;
+}
+
+.messages ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.messages ul li {
+    font-size: 1.2rem;
+    max-width: 65%;
+    width: auto;
+    padding: 15px;
+    box-shadow: -5px 5px 3px var(--faded-grey);
+    border-radius: 8px;
+    border: 1px solid var(--black);
+
+    @container (width < 575px) {
+        max-width: 100%;
+        width: 100%;
+        box-shadow: 0 5px 3px var(--faded-grey);
+    }
+}
+
+.messages ul li:nth-child(even) {
+    align-self: end;
+    box-shadow: 5px 5px 3px var(--faded-grey);
+
+    @container (width < 575px) {
+        box-shadow: 0 5px 3px var(--faded-grey);
+    }
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+    position: sticky;
+    bottom: 0;
+}
+
+.message form {
+    display: flex;
+    width: 50vw;
+    column-gap: 1rem;
+    justify-content: space-between;
+
+     @container (width < 575px) {
+        width: 100vw;
+    }
+}
+
+.message form textarea {
+    font-family: "Figtree", sans-serif;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--faded-grey);
+    border-radius: 8px;
+    field-sizing: content;
+    resize: none;
+}
+
+.message form textarea::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.message form textarea:focus {
+    color: var(--black);
+    border: 1px solid var(--black);
+    outline: none;
+}
+
+.message form button {
+    display: flex;
+    align-self: center;
+    background-color: inherit;
+    border: none;
+}
+
+#submit-btn i {
+    font-size: 30px;
+    color: var(--faded-grey);
+}
