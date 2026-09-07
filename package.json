@@ -1,0 +1,16 @@
+{
+  "name": "amabot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch public/server.js",
+    "start": "node public/server.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1"
+  }
+}
