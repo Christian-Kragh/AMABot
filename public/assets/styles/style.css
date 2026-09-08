@@ -194,6 +194,11 @@ main {
     margin-bottom: 10rem;
 }
 
+#q_and_a time {
+    font-size: .65rem;
+    color: oklch(0.6269 0 291);
+}
+
 .question, .answer {
     font-size: 1.2rem;
     max-width: 65%;
@@ -203,6 +208,7 @@ main {
     box-shadow: -5px 5px 3px var(--faded-grey);
     border-radius: 8px;
     border: 1px solid var(--black);
+    background-color: #dbeafe;
 
     @container (width < 575px) {
         max-width: 100%;
@@ -214,6 +220,7 @@ main {
 #q_and_a article:nth-child(even) {
     align-self: end;
     box-shadow: 5px 5px 3px var(--faded-grey);
+    background-color: #f1f5f9;
 
     @container (width < 575px) {
         box-shadow: 0 5px 3px var(--faded-grey);
@@ -228,7 +235,6 @@ main {
 #message article form {
     display: flex;
     width: 50%;
-    column-gap: 1rem;
 
      @container (width < 575px) {
         width: 100vw;
@@ -242,6 +248,7 @@ main {
     padding: 10px;
     border: 1px solid var(--faded-grey);
     border-radius: 8px;
+    margin-right: 1rem;
     field-sizing: content;
     resize: none;
 }
@@ -265,11 +272,22 @@ main {
 #submit-btn i {
     font-size: 30px;
     color: var(--faded-grey);
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 #alert {
     font-size: 1.5rem;
     color: red;
     text-align: center;
-    /* border: 1px solid black; */
+}
+
+#clear-messages {
+    margin-top: .5rem;
+    font-size: .9rem;
+    &:hover {
+        cursor: pointer;
+    }
 }

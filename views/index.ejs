@@ -24,6 +24,7 @@
                         <p>
                             <%= message.text %>
                         </p>
+                        <time><%= message.createdAt.toLocaleTimeString("da-DK") %></time>
                     </article>
                     <% } %>
 
@@ -42,6 +43,11 @@
                         <button id="submit-btn" type="submit">
                             <i class="fa-solid fa-arrow-up"></i>
                         </button>
+                    </form>
+                </article>
+                <article>
+                    <form method="POST" action="/clear-messages">
+                        <button id="clear-messages" type="submit">Ryd beskeder</button>
                     </form>
                 </article>
             </section>
