@@ -26,6 +26,12 @@
                         </p>
                     </article>
                     <% } %>
+
+                    <% if (error) { %>
+                        <div id="alert">
+                            <p role="alert"><%= error %></p>
+                        </div>
+                    <% } %>
             </section>
 
             <section id="message">

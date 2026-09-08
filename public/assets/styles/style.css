@@ -153,6 +153,7 @@ html {
 :root {
     --black: oklch(0 0 0);
     --faded-grey: oklch(0 0 0 / .17);
+    --background-color: oklch(0.994 0 0);
 }
 
 body {
@@ -161,6 +162,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--background-color);
 }
 
 .wrapper {
@@ -263,4 +265,11 @@ main {
 #submit-btn i {
     font-size: 30px;
     color: var(--faded-grey);
+}
+
+#alert {
+    font-size: 1.5rem;
+    color: red;
+    text-align: center;
+    /* border: 1px solid black; */
 }
