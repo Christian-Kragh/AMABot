@@ -304,8 +304,12 @@ main {
 
     & ul {
         display: flex;
-        width: 20%;
+        width: fit-content;
         justify-content: space-between;
         margin-left: 1rem;
+    }
+
+    & ul li:not(:last-child) {
+        margin-right: 0.5rem;
     }
 }
