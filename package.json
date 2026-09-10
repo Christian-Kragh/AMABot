@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "node --watch public/server.js",
-    "start": "node public/server.js"
+    "dev": "node --watch server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "type": "module",
