@@ -13,18 +13,22 @@ const messages = []
 
 const answers = [
     {
+        category: "navn",
         keywords: ["navn", "hedder", "hvem er du"],
-        answers: ["Jeg hedder Christian. Hvad vil du ellers vide om mig?"]
+        answers: "Jeg hedder Christian. Hvad vil du ellers vide om mig?"
     },
     {
+        category: "bosted",
         keywords: ["bor", "by", "fra"],
-        answers: ["Jeg bor i Lading."]
+        answers: "Jeg bor i Lading."
     },
     {
+        category: "fritid",
         keywords: ["fritid", "hobby", "kan lide"],
-        answers: ["I min fritid kan jeg godt lide at læse og gå ture."]
+        answers: "I min fritid kan jeg godt lide at læse og gå ture."
     },
     {
+        category: "kæledyr",
         keywords: ["dyr", "hund", "kat"],
         answers: [
             "Jeg elsker hunde",
@@ -32,6 +36,14 @@ const answers = [
         ]
     }
 ];
+
+function countMatches(keywords, normalizedQuestion) {
+    const matches = keywords.filter((keyword) =>
+        normalizedQuestion.includes(keyword) 
+    );
+
+    return matches.length;
+}
 
 function findAnswer(question) {
     const normalizedQuestion = question.toLowerCase();
@@ -49,12 +61,41 @@ function findAnswer(question) {
     return "Det kender jeg ikke svaret på endnu.";
 }
 
+function findBestAnswer(question) {
+  const normalizedQuestion = question.toLowerCase();
+  let bestScore = 0;
+  let bestAnswer = "Det kender jeg ikke svaret på endnu.";
+  let bestCategory = "";
+
+  for (const answerGroup of answers) {
+    const score = countMatches(answerGroup.keywords, normalizedQuestion);
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestAnswer = answerGroup.answers;
+      bestCategory = answerGroup.category;
+    }
+  }
+
+  return {
+    answer: bestAnswer,
+    category: bestCategory
+  };
+}
+
 function sanitizeQuestion(input) {
     return input.replace(/[\u0000-\u001F\u007F]/g, "");
 }
 
+const topicStats = {
+    navn: 0,
+    bosted: 0,
+    fritid: 0,
+    kæledyr: 0
+};
+
 app.get("/", (request, response) => {
-    response.render("index", { messages, error: "" });
+    response.render("index", { messages, error: "", topicStats });
 });
 
 app.get("/debug", (request, response) => {
@@ -81,15 +122,19 @@ app.post("/ask", (request, response) => {
     }
     else {
         messages.push({ type: "question", text: question, createdAt: new Date() });
-        const answer = findAnswer(question);
-        messages.push({ type: "answer", text: answer, createdAt: new Date() });
+        const result = findBestAnswer(question);
+        messages.push({ type: "answer", text: result.answer, createdAt: new Date() });
+        
+        if (result.category) {
+            topicStats[result.category] = topicStats[result.category] + 1;
+        }
     }
 
     if (messages.lenght > 0) {
         document.getElementById('clear-messages').setAttribute("style", "color:red;")
     }
 
-    response.render("index", { messages, error });
+    response.render("index", { messages, error, topicStats });
 });
 
 app.post("/clear-messages", (request, response) => {

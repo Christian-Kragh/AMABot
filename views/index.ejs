@@ -24,15 +24,19 @@
                         <p>
                             <%= message.text %>
                         </p>
-                        <time><%= message.createdAt.toLocaleTimeString("da-DK") %></time>
+                        <time>
+                            <%= message.createdAt.toLocaleTimeString("da-DK") %>
+                        </time>
                     </article>
                     <% } %>
 
-                    <% if (error) { %>
-                        <div id="alert">
-                            <p role="alert"><%= error %></p>
-                        </div>
-                    <% } %>
+                        <% if (error) { %>
+                            <div id="alert">
+                                <p role="alert">
+                                    <%= error %>
+                                </p>
+                            </div>
+                            <% } %>
             </section>
 
             <section id="message">
@@ -51,6 +55,21 @@
                     </form>
                 </article>
             </section>
+
+            <section id="stats">
+                <article>
+                    <h2>Spørgsmål fordelt på emner:</h2>
+                    <ul>
+                        <li>Navn: <%= topicStats.navn %>
+                        </li>
+                        <li>Bosted: <%= topicStats.bosted %>
+                        </li>
+                        <li>Fritid: <%= topicStats.fritid %>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+
         </main>
     </div>
 </body>
