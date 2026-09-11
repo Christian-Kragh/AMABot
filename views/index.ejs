@@ -53,6 +53,10 @@
                     <form method="POST" action="/clear-messages">
                         <button id="clear-messages" type="submit">Ryd beskeder</button>
                     </form>
+
+                    <form method="POST" action="/clear-stats">
+                        <button type="submit">Nulstil statistik</button>
+                    </form>
                 </article>
             </section>
 
@@ -64,7 +68,7 @@
                             <li>
                                 <%= stat[0] %>: <%= stat[1] %>
                             </li>
-                        <% } %>
+                            <% } %>
                     </ul>
                 </article>
             </section>

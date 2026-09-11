@@ -1,6 +1,7 @@
 
 import express from "express";
 import { answers } from "./data/answers.js";
+import fs from "node:fs/promises"
 
 const app = express();
 const port = 3000;
@@ -9,7 +10,31 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-const messages = []
+async function loadMessages() {
+    const data = await fs.readFile("./data/messages.json", "utf-8");
+    const messages = JSON.parse(data);
+
+    for(const message of messages) {
+        message.createdAt = new Date(message.createdAt);
+    }
+
+    return messages;
+}
+
+async function saveMessages(messages) {
+    const json = JSON.stringify(messages, null, 2);
+    await fs.writeFile("./data/messages.json", json);
+}
+
+async function loadTopicStats() {
+    const data = await fs.readFile("./data/topic-stats.json", "utf-8");
+    return JSON.parse(data);
+}
+
+async function saveTopicStats(topicStats) {
+  const json = JSON.stringify(topicStats, null, 2);
+  await fs.writeFile("./data/topic-stats.json", json);
+}
 
 function countMatches(keywords, normalizedQuestion) {
     const matches = keywords.filter((keyword) =>
@@ -61,14 +86,10 @@ function sanitizeQuestion(input) {
     return input.replace(/[\u0000-\u001F\u007F]/g, "");
 }
 
-const topicStats = {
-    navn: 0,
-    bosted: 0,
-    fritid: 0,
-    kæledyr: 0
-};
+app.get("/", async (request, response) => {
+    const messages = await loadMessages();
+    const topicStats = await loadTopicStats();
 
-app.get("/", (request, response) => {
     response.render("index", { messages, error: "", topicStats });
 });
 
@@ -82,10 +103,13 @@ app.get("/debug/:name", (request, response) => {
     response.send(request.params);
 });
 
-app.post("/ask", (request, response) => {
+app.post("/ask", async (request, response) => {
 
-    const rawQuestion = request.body.question;
-    const question = sanitizeQuestion(rawQuestion).trim();
+    const messages = await loadMessages();
+    const topicStats = await loadTopicStats();
+    const question = request.body.question.trim();
+    // const rawQuestion = request.body.question;
+    // const question = sanitizeQuestion(rawQuestion).trim();
     let error = "";
 
     if (!question) {
@@ -104,18 +128,28 @@ app.post("/ask", (request, response) => {
         }
     }
 
-    if (messages.lenght > 0) {
-        document.getElementById('clear-messages').setAttribute("style", "color:red;")
-    }
+    await saveTopicStats(topicStats);
+    await saveMessages(messages);
 
     response.render("index", { messages, error, topicStats });
 });
 
-app.post("/clear-messages", (request, response) => {
-    messages.length = 0;
+app.post("/clear-messages", async (request, response) => {
+    await saveMessages([]);
     response.redirect("/");
 });
 
+app.post("/clear-stats", async (request, response) => {
+    const topicStats = await loadTopicStats();
+
+    for (const category of Object.keys(topicStats)) {
+        topicStats[category] = 0;
+    }
+
+    await saveTopicStats(topicStats);
+
+    response.redirect("/");
+});
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
