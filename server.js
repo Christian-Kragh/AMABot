@@ -67,11 +67,15 @@ function findBestAnswer(question) {
   let bestCategory = "";
 
   for (const answerGroup of answers) {
+
     const score = countMatches(answerGroup.keywords, normalizedQuestion);
 
     if (score > bestScore) {
       bestScore = score;
-      bestAnswer = answerGroup.answers;
+
+      const randomIndex = Math.floor(Math.random() * answerGroup.answers.length);
+
+      bestAnswer = answerGroup.answers[randomIndex];
       bestCategory = answerGroup.category;
     }
   }
