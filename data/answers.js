@@ -21,5 +21,14 @@ export const answers = [
             "Jeg elsker hunde",
             "Jeg er mere til hunde end katte, men katte kan også være søde."
         ]
+    },
+    {
+        category: "mad",
+        keywords: ["mad", "spise", "livret"],
+        answers: [
+            "Jeg har et stort mad-hjerte - undtagen hvis det er lever eller hjerte",
+            "Jeg kan ikke få nok af sushi",
+            "Jeg elsker stort set alt mad"
+        ]
     }
 ];

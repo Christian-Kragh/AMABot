@@ -68,8 +68,14 @@
                             <li>
                                 <%= stat[0] %>: <%= stat[1] %>
                             </li>
-                            <% } %>
+                        <% } %>
                     </ul>
+                </article>
+                <article>
+                    <% if (mostAskedTopic) { %>
+                        <p>Mest spurgte emne: <%= mostAskedTopic %>
+                        </p>
+                    <% } %>
                 </article>
             </section>
 

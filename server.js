@@ -72,12 +72,14 @@ function findBestAnswer(question) {
 
     if (score > bestScore) {
       bestScore = score;
-
-      const randomIndex = Math.floor(Math.random() * answerGroup.answers.length);
-
-      bestAnswer = answerGroup.answers[randomIndex];
+      bestAnswer = answerGroup.answers;
       bestCategory = answerGroup.category;
     }
+  }
+
+  if (Array.isArray(bestAnswer)) {
+    const randomIndex = Math.floor(Math.random() * bestAnswer.length);
+    bestAnswer = bestAnswer[randomIndex];
   }
 
   return {
@@ -93,8 +95,9 @@ function sanitizeQuestion(input) {
 app.get("/", async (request, response) => {
     const messages = await loadMessages();
     const topicStats = await loadTopicStats();
+    const mostAskedTopic = findMostAskedTopic(topicStats);
 
-    response.render("index", { messages, error: "", topicStats });
+    response.render("index", { messages, error: "", topicStats, mostAskedTopic });
 });
 
 app.get("/debug", (request, response) => {
@@ -130,13 +133,34 @@ app.post("/ask", async (request, response) => {
         if (result.category) {
             topicStats[result.category] = topicStats[result.category] + 1;
         }
+        else {
+            topicStats.ukendt = topicStats.ukendt + 1;
+        }
     }
 
     await saveTopicStats(topicStats);
     await saveMessages(messages);
+    const mostAskedTopic = findMostAskedTopic(topicStats);
 
-    response.render("index", { messages, error, topicStats });
+    response.render("index", { messages, error, topicStats, mostAskedTopic });
 });
+
+function findMostAskedTopic(stats) {
+    let highestCount = 0;
+    let mostAskedTopic = "";
+
+    for(const stat of Object.entries(stats)) {
+        const category = stat[0];
+        const count = stat[1];
+
+        if(count > highestCount) {
+            highestCount = count;
+            mostAskedTopic = category;
+        }
+    }
+
+    return mostAskedTopic;
+}
 
 app.post("/clear-messages", async (request, response) => {
     await saveMessages([]);
