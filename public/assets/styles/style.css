@@ -295,21 +295,28 @@ main {
     }
 }
 
+#stats {
+    margin-top: 2rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    column-gap: 3rem;
+    border: 1px solid red;
+}
+
 #stats article {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    row-gap: 2rem;
+    margin-right: 1rem;
+}
+
+#stats article ul {
+    display: flex;
     justify-content: center;
-    margin-top: 2rem;
 
-
-    & ul {
-        display: flex;
-        width: fit-content;
-        justify-content: space-between;
-        margin-left: 1rem;
-    }
-
-    & ul li:not(:last-child) {
+    & li:not(:last-child) {
         margin-right: 0.5rem;
     }
 }
