@@ -1,62 +1,22 @@
 [
   {
     "type": "question",
-    "text": "Hvad hedder du",
-    "createdAt": "2026-09-25T22:08:41.526Z"
+    "text": "hvor bor du",
+    "createdAt": "2026-09-26T20:25:52.357Z"
   },
   {
     "type": "answer",
-    "text": "Det kender jeg ikke svaret på endnu.",
-    "createdAt": "2026-09-25T22:08:41.527Z"
+    "text": "Jeg bor i Lading",
+    "createdAt": "2026-09-26T20:25:52.357Z"
   },
   {
     "type": "question",
-    "text": "Hvad hedder du",
-    "createdAt": "2026-09-25T22:47:09.922Z"
+    "text": "hvad hedder du",
+    "createdAt": "2026-09-26T20:26:05.962Z"
   },
   {
     "type": "answer",
     "text": "Jeg hedder Christian. Hvad vil du ellers vide om mig?",
-    "createdAt": "2026-09-25T22:47:09.923Z"
-  },
-  {
-    "type": "question",
-    "text": "Hvad er din livret",
-    "createdAt": "2026-09-25T22:48:49.231Z"
-  },
-  {
-    "type": "answer",
-    "text": "Min livret er lasagne.",
-    "createdAt": "2026-09-25T22:48:49.231Z"
-  },
-  {
-    "type": "question",
-    "text": "hvad er din livret",
-    "createdAt": "2026-09-25T22:55:06.853Z"
-  },
-  {
-    "type": "answer",
-    "text": "Min livret er lasagne.",
-    "createdAt": "2026-09-25T22:55:06.853Z"
-  },
-  {
-    "type": "question",
-    "text": "Hvad er din livret",
-    "createdAt": "2026-09-25T22:58:54.916Z"
-  },
-  {
-    "type": "answer",
-    "text": "Min livret er øllebrød",
-    "createdAt": "2026-09-25T22:58:54.916Z"
-  },
-  {
-    "type": "question",
-    "text": "Hvad er din livret",
-    "createdAt": "2026-09-25T23:05:17.213Z"
-  },
-  {
-    "type": "answer",
-    "text": "Det kender jeg ikke svaret på endnu.",
-    "createdAt": "2026-09-25T23:05:17.213Z"
+    "createdAt": "2026-09-26T20:26:05.962Z"
   }
 ]
