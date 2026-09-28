@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/assets/styles/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="app.js" defer></script>
     <title>ChatBoi</title>
 </head>
 
@@ -13,35 +14,18 @@
     <div class="wrapper">
         <header>
             <nav>
-                <h1>ChatBoi</h1>
+                <h1>ChatBot</h1>
             </nav>
         </header>
 
         <main>
             <section id="q_and_a">
-                <% for (const message of messages) { %>
-                    <article class="<%= message.type %>">
-                        <p>
-                            <%= message.text %>
-                        </p>
-                        <time>
-                            <%= message.createdAt.toLocaleTimeString("da-DK") %>
-                        </time>
-                    </article>
-                    <% } %>
-
-                        <% if (error) { %>
-                            <div id="alert">
-                                <p role="alert">
-                                    <%= error %>
-                                </p>
-                            </div>
-                            <% } %>
+                <article id="messages"></article>
             </section>
 
             <section id="message">
                 <article>
-                    <form method="POST" action="/ask">
+                    <form id="question-form">
                         <label for="question"></label>
                         <textarea id="question" name="question" placeholder="Stil dit spørgsmål..."></textarea>
                         <button id="submit-btn" type="submit">
@@ -50,35 +34,29 @@
                     </form>
                 </article>
                 <article>
-                    <form method="POST" action="/clear-messages">
-                        <button id="clear-messages" type="submit">Ryd beskeder</button>
-                    </form>
-
-                    <form method="POST" action="/clear-stats">
-                        <button type="submit">Nulstil statistik</button>
-                    </form>
+                    <button id="clear-messages-button" type="button">Ryd beskeder</button>
+                    <!-- <button id="clear-stats-button" type="button">Nulstil statistik</button> -->
                 </article>
             </section>
 
-            <section id="stats">
+            <!-- <section id="stats">
                 <article>
                     <h2>Spørgsmål fordelt på emner:</h2>
                     <ul>
                         <% for (const stat of Object.entries(topicStats)) { %>
-                            <li>
-                                <%= stat[0] %>: <%= stat[1] %>
-                            </li>
+                        <li>
+                            <%= stat[0] %>: <%= stat[1] %>
+                        </li>
                         <% } %>
                     </ul>
                 </article>
                 <article>
                     <% if (mostAskedTopic) { %>
-                        <p>Mest spurgte emne: </p> 
-                        <p><%= mostAskedTopic %></p>
+                    <p>Mest spurgte emne: </p> 
+                    <p><%= mostAskedTopic %></p>
                     <% } %>
                 </article>
-            </section>
-
+            </section> -->
         </main>
     </div>
 </body>

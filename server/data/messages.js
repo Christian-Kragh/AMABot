@@ -3,14 +3,13 @@ import fs from "node:fs/promises"
 
 
 export async function loadMessages() {
-    const data = await fs.readFile("./data/messages.json", "utf-8");
-    const messages = JSON.parse(data);
-
-    for (const message of messages) {
-        message.createdAt = new Date(message.createdAt);
+    try {
+        const data = await fs.readFile("./data/messages.json", "utf-8");
+        return JSON.parse(data);
     }
-
-    return messages;
+    catch {
+        throw new Error("Kunne ikke hente samtalen. data/messages.json mangler eller er ugyldig.")
+    }
 }
 
 export async function saveMessages(messages) {

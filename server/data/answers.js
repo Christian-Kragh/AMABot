@@ -3,8 +3,13 @@ import fs from "node:fs/promises"
 
 
 export async function loadAnswers() {
-    const data = await fs.readFile("./data/answers.json", "utf-8")
-    return JSON.parse(data)
+    try {
+        const data = await fs.readFile("./data/answers.json", "utf-8")
+        return JSON.parse(data)
+    }
+    catch {
+        throw new Error("Kunne ikke hente samtalen. data/answers.json mangler eller er ugyldig.")
+    }
 }
 
 export async function saveAnswers(answers) {
