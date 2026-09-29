@@ -19,44 +19,39 @@
         </header>
 
         <main>
-            <section id="q_and_a">
+            <section>
                 <article id="messages"></article>
             </section>
 
             <section id="message">
-                <article>
-                    <form id="question-form">
-                        <label for="question"></label>
-                        <textarea id="question" name="question" placeholder="Stil dit spørgsmål..."></textarea>
-                        <button id="submit-btn" type="submit">
-                            <i class="fa-solid fa-arrow-up"></i>
-                        </button>
-                    </form>
-                </article>
-                <article>
-                    <button id="clear-messages-button" type="button">Ryd beskeder</button>
-                    <!-- <button id="clear-stats-button" type="button">Nulstil statistik</button> -->
-                </article>
+                <div id="message-article-container">
+                    <article>
+                        <form id="question-form">
+                            <label for="question"></label>
+                            <textarea id="question" name="question" placeholder="Stil dit spørgsmål..."></textarea>
+                            <button id="submit-btn" type="submit">
+                                <i class="fa-solid fa-arrow-up"></i>
+                            </button>
+                        </form>
+                    </article>
+                    <article id="clear">
+                        <button id="clear-messages-button" type="button">Ryd beskeder</button>
+                        <button id="clear-stats-button" type="button">Nulstil statistik</button>
+                    </article>
+                </div>
             </section>
 
-            <!-- <section id="stats">
+            <section id="stats">
                 <article>
                     <h2>Spørgsmål fordelt på emner:</h2>
-                    <ul>
-                        <% for (const stat of Object.entries(topicStats)) { %>
-                        <li>
-                            <%= stat[0] %>: <%= stat[1] %>
-                        </li>
-                        <% } %>
-                    </ul>
+                    <ul id="topic-list"></ul>
                 </article>
+
                 <article>
-                    <% if (mostAskedTopic) { %>
-                    <p>Mest spurgte emne: </p> 
-                    <p><%= mostAskedTopic %></p>
-                    <% } %>
+                    <p>Mest spurgte emne: </p>
+                    <p id="most-asked-topic"></p>
                 </article>
-            </section> -->
+            </section>
         </main>
     </div>
 </body>

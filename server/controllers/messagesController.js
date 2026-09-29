@@ -11,13 +11,18 @@ export async function getAllMessages(request, response) {
     response.json(messages)
 };
 
+
+function sanitizeQuestion(input) {
+    return input.replace(/[\u0000-\u001F\u007F]/g, "");
+}
+
 export async function createMessage(request, response) {
     const messages = await loadMessages()
     const answers = await loadAnswers()
-    const question = request.body.question;
+    // const question = request.body.question;
     const topicStats = await loadTopicStats();
-    // const rawQuestion = request.body.question;
-    // const question = sanitizeQuestion(rawQuestion).trim();
+    const rawQuestion = request.body.question;
+    const question = sanitizeQuestion(rawQuestion).trim();
 
     if (!question) {
         response.status(400).json({ error: "Skriv et spørgsmål, før du sender" })
@@ -105,9 +110,6 @@ function findBestAnswer(question, answers) {
     };
 }
 
-function sanitizeQuestion(input) {
-    return input.replace(/[\u0000-\u001F\u007F]/g, "");
-}
 
 function escapeHtml(text) {
     return text

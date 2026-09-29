@@ -188,21 +188,28 @@ main {
     padding-top: 4rem;
 }
 
-#q_and_a {
+#messages {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 10rem;
+    max-height: 50vh;
+    overflow-y: auto;
 }
 
-#q_and_a time {
-    font-size: .65rem;
-    color: oklch(0.6269 0 291);
+#messages article:nth-child(even) {
+    align-self: end;
+    box-shadow: 5px 5px 3px var(--faded-grey);
+    background-color: #f1f5f9;
+
+    @container (width < 575px) {
+        box-shadow: 0 5px 3px var(--faded-grey);
+    }
 }
 
 .question,
 .answer {
-    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: .3rem;
     max-width: 65%;
     width: fit-content;
     overflow-wrap: break-word;
@@ -219,28 +226,35 @@ main {
     }
 }
 
-#q_and_a article:nth-child(even) {
-    align-self: end;
-    box-shadow: 5px 5px 3px var(--faded-grey);
-    background-color: #f1f5f9;
-
-    @container (width < 575px) {
-        box-shadow: 0 5px 3px var(--faded-grey);
-    }
+small {
+    display: block;
+    font-size: .6rem;
 }
 
-#message article {
+.answer small {
+    text-align: right;
+    
+}
+
+#message {
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
 }
 
 #message article form {
     display: flex;
-    width: 50%;
+    width: 50vw;
 
     @container (width < 575px) {
         width: 100vw;
     }
+}
+
+#message-article-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: .8rem;
 }
 
 #message article form textarea {
@@ -268,7 +282,6 @@ main {
 #message article form button {
     background-color: inherit;
     border: none;
-    /* align-self: end; */
 }
 
 #submit-btn i {
@@ -280,69 +293,49 @@ main {
     }
 }
 
-#alert {
+#clear {
+    width: 46vw;
+    justify-content: space-between;
+    display: flex;
+}
+
+/* #alert {
     font-size: 1.5rem;
     color: red;
     text-align: center;
-}
-
-#clear-messages {
-    margin-top: .5rem;
-    font-size: .9rem;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
+} */
 
 #stats {
-    margin-top: 2rem;
-    height: fit-content;
-    display: flex;
+    display:flex;
     flex-direction: column;
     text-align: center;
-    column-gap: 3rem;
-    border: 1px solid red;
+    margin-top: 2rem;
+    row-gap: 1.5rem;
+    font-size: .8rem;
 }
 
 #stats article {
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
-    margin-right: 1rem;
+    gap: 0.5rem;
 }
 
-#stats article ul {
+#topic-list {
     display: flex;
     justify-content: center;
 
     & li:not(:last-child) {
-        margin-right: 0.5rem;
+        margin-right: 0.5rem
     }
 }
 
-
 #clear-messages-button, #clear-stats-button {
-  display: block;
-  margin: 1rem auto 0;
-  padding: 0.6rem 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    border: none;
+    background-color: inherit;
+    font-size: .7rem;
+    color: var(--faded-grey)
 }
 
 #clear-messages-button:hover, #clear-stats-button:hover {
-  background: var(--answer-bg);
-  color: var(--text);
-  border-color: var(--text-muted);
-}
-
-#clear-messages-button:focus-visible, #clear-stats-button:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+    color: var(--black);
 }

@@ -14,9 +14,9 @@ async function loadMessages() {
     const data = await fs.readFile("./data/messages.json", "utf-8");
     const messages = JSON.parse(data);
 
-    for(const message of messages) {
-        message.createdAt = new Date(message.createdAt);
-    }
+    // for(const message of messages) {
+    //     message.createdAt = new Date(message.createdAt);
+    // }
 
     return messages;
 }

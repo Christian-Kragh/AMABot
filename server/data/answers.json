@@ -6,7 +6,9 @@
       "hedder",
       "hvem er du"
     ],
-    "answers": "Jeg hedder Christian. Hvad vil du ellers vide om mig?"
+    "answers": [
+      "Jeg hedder Christian. Hvad vil du ellers vide om mig?"
+    ]
   },
   {
     "category": "bosted",

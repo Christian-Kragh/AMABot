@@ -1,6 +1,17 @@
 
 import { loadTopicStats, saveTopicStats } from '../data/topic-stats.js';
 
+
+export async function getTopicsStats(request, response) {
+    const topicStats = await loadTopicStats()
+    const mostAskedTopic = findMostAskedTopic(topicStats)
+
+    response.json({
+        topicStats,
+        mostAskedTopic
+    })
+}
+
 export function findMostAskedTopic(stats) {
     let highestCount = 0;
     let mostAskedTopic = "";
@@ -19,13 +30,13 @@ export function findMostAskedTopic(stats) {
 }
 
 export async function deleteTopicStats(request, response) {
-    let topicsStats = await loadTopicStats()
+    const topicStats = await loadTopicStats()
 
-    for (const topic of topicsStats) {
-        topic[1] = 0
+    for (const topic of Object.keys(topicStats)) {
+        topicStats[topic] = 0
     }
 
-    await saveTopicStats()
+    await saveTopicStats(topicStats)
 
     response.send()
 };

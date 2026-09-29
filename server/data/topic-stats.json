@@ -1,9 +1,9 @@
 {
   "navn": 0,
-  "bosted": 1,
+  "bosted": 0,
   "fritid": 0,
   "kæledyr": 0,
   "mad": 0,
-  "ukendt": 3,
-  "hilsen": 6
+  "ukendt": 0,
+  "hilsen": 0
 }
