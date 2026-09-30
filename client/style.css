@@ -338,4 +338,5 @@ small {
 
 #clear-messages-button:hover, #clear-stats-button:hover {
     color: var(--black);
+    cursor: pointer;
 }
