@@ -39,5 +39,143 @@
       "Jeg elsker hunde",
       "Jeg er mere til hunde end katte, men katte kan også være søde."
     ]
+  },
+  {
+    "category": "mad",
+    "keywords": [
+      "mad",
+      "spise",
+      "ret",
+      "favoritmad"
+    ],
+    "answers": [
+      "Jeg elsker god mad, især når den er lavet med lidt ekstra kærlighed.",
+      "Jeg har flere favoritter, men jeg siger sjældent nej til et godt måltid."
+    ]
+  },
+  {
+    "category": "musik",
+    "keywords": [
+      "musik",
+      "sang",
+      "sange",
+      "band",
+      "kunstner"
+    ],
+    "answers": [
+      "Jeg kan godt lide at høre musik, især når jeg skal slappe af.",
+      "Min musiksmag varierer en del alt efter humøret."
+    ]
+  },
+  {
+    "category": "film",
+    "keywords": [
+      "film",
+      "filme",
+      "biograf",
+      "favoritfilm"
+    ],
+    "answers": [
+      "Jeg kan godt lide en god film, især hvis historien virkelig fanger mig.",
+      "Jeg ser gerne film, når jeg har tid til at slappe helt af."
+    ]
+  },
+  {
+    "category": "spil",
+    "keywords": [
+      "spil",
+      "gaming",
+      "computer",
+      "playstation",
+      "xbox"
+    ],
+    "answers": [
+      "Jeg kan godt lide at spille, især når et spil virkelig formår at fange min interesse.",
+      "Gaming er en god måde at koble af på."
+    ]
+  },
+  {
+    "category": "fritid",
+    "keywords": [
+      "fritid",
+      "fri",
+      "fritiden",
+      "weekend",
+      "slappe"
+    ],
+    "answers": [
+      "I min fritid kan jeg godt lide at slappe af og lave ting, jeg synes er sjove.",
+      "Jeg bruger gerne min fritid på både afslapning og ting, hvor jeg kan lære noget nyt."
+    ]
+  },
+  {
+    "category": "rejser",
+    "keywords": [
+      "rejse",
+      "rejser",
+      "ferie",
+      "ferier",
+      "udland"
+    ],
+    "answers": [
+      "Jeg kan godt lide at rejse og opleve nye steder.",
+      "En god ferie for mig handler både om oplevelser og om at kunne slappe af."
+    ]
+  },
+  {
+    "category": "programmering",
+    "keywords": [
+      "programmering",
+      "kode",
+      "coding",
+      "udvikling",
+      "programmør"
+    ],
+    "answers": [
+      "Jeg synes, programmering er spændende, fordi man kan skabe noget fra bunden.",
+      "Jeg kan godt lide at løse problemer gennem kode og lære nye teknologier."
+    ]
+  },
+  {
+    "category": "webudvikling",
+    "keywords": [
+      "web",
+      "hjemmeside",
+      "webudvikling",
+      "frontend",
+      "backend"
+    ],
+    "answers": [
+      "Jeg synes, webudvikling er spændende, fordi man både kan arbejde kreativt og teknisk.",
+      "Jeg kan godt lide tanken om at skabe hjemmesider og løsninger, som andre faktisk kan bruge."
+    ]
+  },
+  {
+    "category": "personlighed",
+    "keywords": [
+      "personlighed",
+      "person",
+      "type",
+      "beskrive",
+      "beskrivelse"
+    ],
+    "answers": [
+      "Jeg vil beskrive mig selv som nysgerrig og interesseret i at lære nye ting.",
+      "Jeg kan godt lide at fordybe mig i ting, der interesserer mig."
+    ]
+  },
+  {
+    "category": "fremtid",
+    "keywords": [
+      "fremtid",
+      "drøm",
+      "drømme",
+      "mål",
+      "ambition"
+    ],
+    "answers": [
+      "Jeg vil gerne blive dygtigere inden for webudvikling og fortsætte med at lære nye ting.",
+      "Et af mine mål er hele tiden at udvikle mine kompetencer og blive bedre til det, jeg arbejder med."
+    ]
   }
 ]
